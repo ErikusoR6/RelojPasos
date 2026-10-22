@@ -103,7 +103,7 @@ public class DemoPodometro {
     }
 
     private void mostrarEstadisticas() {
-
+        System.out.println();
         podometro.printEstadísticas();
         System.out.print("Día/s con más pasos caminados: "
             + podometro.diaMayorNumeroPasos());
