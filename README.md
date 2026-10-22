@@ -86,7 +86,7 @@ Completa los siguientes métodos:
 - Implementa el accesor `getMarca()` para obtener la marca.
 
 ---
-#### Método `void configurar(double queAltura, char queSexo)`
+#### Método `void configurar(int queAltura, char queSexo)`
 
 Simula la configuración del podómetro: asigna la altura y el sexo recibidos y
 calcula `longitudZancada` en centímetros.

@@ -36,7 +36,7 @@ public class Podometro {
      * (leer enunciado)
      *  
      */
-    public void configurar(double queAltura, char queSexo) {
+    public void configurar(int queAltura, char queSexo) {
 
         
     }
