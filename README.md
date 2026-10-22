@@ -71,7 +71,7 @@ Define también **solo** estos atributos, respetando sus nombres:
 | `totalDistanciaSemana` | Distancia recorrida durante toda la semana (de lunes a domingo), en kilómetros (con decimales) |
 | `totalDistanciaFinSemana` | Distancia recorrida durante el fin de semana (sábado o domingo), en kilómetros (con decimales) |
 | `tiempo` | Tiempo total caminado durante la semana, en minutos |
-| `caminatasNoche` | Caminatas realizadas a partir de las 21 h a lo largo de toda la semana |
+| `caminatasNoche` | Caminatas realizadas a partir de las 21 h (incluida) a lo largo de toda la semana (se tiene en cuenta sólo la hora de inicio) |
 
 No incluyas otros atributos.
 
