@@ -1,0 +1,6 @@
+*.class
+*.ctxt
+*.pkg
+*.pkh
+.bluej
+docs/
