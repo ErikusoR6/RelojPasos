@@ -83,7 +83,7 @@ public class DemoPodometro {
         System.out.println("********************************************\n");
     }
 
-    private void configurar(double altura, char sexo) {
+    private void configurar(int altura, char sexo) {
         podometro.configurar(altura, sexo);
         podometro.printConfiguracion();
 
