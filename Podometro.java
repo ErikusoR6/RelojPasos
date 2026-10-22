@@ -1,30 +1,58 @@
-﻿/**
+/**
  * La clase modela un sencillo podómetro que registra información
  * acerca de los pasos, distancia, ..... que una persona
  * ha dado en una semana. 
  * 
- * @author    - pon aquí tu nombre - 
+ * @author    -Erik Dafonte Da concepcion - 
  */
 public class Podometro {
-    
+    public static char HOMBRE = 'H';
+    public static char MUJER = 'M';
+    public static Double RAZON_ZANCADA_HOMBRE = 0.45;
+    public static Double RAZON_ZANCADA_MUJER = 0.41;
+    public static Integer SABADO = 6;
+    public static Integer DOMINGO = 7;
+
+    private String marca;
+    private int altura;
+    private char sexo;
+    private int longitudZancada;
+    private int totalPasosLaborables;
+    private int totalPasosSabado;
+    private int totalPasosDomingo;
+    private int totalDistanciaSemana;
+    private int totalDistanciaFinSemana;
+    private int tiempo;
+    private int caminatasNoche;
+
+
 
     /**
      * Inicializa el podómetro con la marca indicada por el parámetro.
      * El resto de atributos se ponen a 0 y el sexo, por defecto, es mujer
      */
-    public Podometro() {
+    public Podometro(String marca,int altura, char sexo, int longitudZancada, int totalPasosLaborables, int totalPasosSabado, int totalPasosDomingo
+    ,int totalDistanciaSemana, int totalDistanciaFinSemana, int tiempo, int caminatasNoche) {
+        this.marca = marca;
+        this.altura = 0;
+        this.sexo = MUJER;
+        this.longitudZancada = 0;
+        this.totalPasosLaborables = 0;
+        this.totalPasosSabado = 0;
+        this.totalPasosDomingo = 0;
+        this.totalDistanciaSemana = 0;
+        this.totalDistanciaFinSemana = 0;
+        this.tiempo = 0;
+        this.caminatasNoche = 0;
 
-        
     }
 
     /**
      * accesor para la marca
      *  
      */
-    public      getMarca() {
-
-         
-
+    public String getMarca() {
+        return marca;
     }
 
     /**
@@ -37,8 +65,14 @@ public class Podometro {
      *  
      */
     public void configurar(int queAltura, char queSexo) {
+        altura = queAltura;
+        sexo = queSexo;
 
-        
+        if (queSexo == HOMBRE) {
+            longitudZancada = (int) Math.ceil(queAltura * RAZON_ZANCADA_HOMBRE);
+        } else if (queSexo == MUJER) {
+            longitudZancada = (int) Math.ceil(queAltura * RAZON_ZANCADA_MUJER);
+        }
     }
 
      /**
@@ -56,9 +90,41 @@ public class Podometro {
      */
     public void registrarCaminata(int pasos, int dia, int horaInicio,
                             int horaFin) {
+        double distanciaKm = pasos * longitudZancada / 100000.0;
 
-       
+        int minutosInicio = (horaInicio / 100) * 60 + (horaInicio % 100);
+        int minutosFin = (horaFin / 100) * 60 + (horaFin % 100);
 
+        tiempo += minutosFin - minutosInicio;
+        if (horaInicio >= 2100){
+            caminatasNoche ++;
+        }
+
+        switch (dia){
+            case 1:
+                totalPasosLaborables = totalPasosLaborables + pasos;
+                totalDistanciaSemana = totalDistanciaSemana + (int)distanciaKm;
+            case 2:
+                totalPasosLaborables = totalPasosLaborables + pasos;
+                totalDistanciaSemana = totalDistanciaSemana + (int)distanciaKm;
+            case 3:
+                totalPasosLaborables = totalPasosLaborables + pasos;
+                totalDistanciaSemana = totalDistanciaSemana + (int)distanciaKm;
+            case 4:
+                totalPasosLaborables = totalPasosLaborables + pasos;
+                totalDistanciaSemana = totalDistanciaSemana + (int)distanciaKm;
+            case 5:
+                totalPasosLaborables = totalPasosLaborables + pasos;
+                totalDistanciaSemana = totalDistanciaSemana + (int)distanciaKm;
+            case 6:
+                totalPasosSabado = totalPasosSabado + pasos;
+                totalDistanciaSemana = totalDistanciaSemana + (int)distanciaKm;
+                totalDistanciaFinSemana = totalDistanciaFinSemana + (int)distanciaKm;
+            case 7:
+                totalPasosDomingo = totalPasosDomingo + pasos;
+                totalDistanciaSemana = totalDistanciaSemana + (int)distanciaKm;
+                totalDistanciaFinSemana = totalDistanciaFinSemana + (int)distanciaKm;
+        }
     }
     
      /**
