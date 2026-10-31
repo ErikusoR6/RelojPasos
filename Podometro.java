@@ -166,7 +166,7 @@ public class Podometro {
     /**
      *  Calcula y devuelve un String que representa el nombre del día
      *  en el que se ha caminado más pasos - "SÁBADO"   "DOMINGO" o  "LABORABLES"
-     */
+
     public String diaMayorNumeroPasos() {
         int maximo = Math.max(totalPasosLaborables, Math.max(totalPasosSabado, totalPasosDomingo));
         String resultado = "";
@@ -182,6 +182,7 @@ public class Podometro {
         }
         return resultado.trim();
     }
+    */
     
     
     /**
